@@ -3,9 +3,20 @@
 #include <vector>
 #include <list>
 
+// ANSI color codes
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+#define BOLD    "\033[1m"
+
 int main()
 {
-	std::cout << "=== Basic Span Test ===" << std::endl;
+	std::cout <<BOLD<<YELLOW<< "=== Basic Span Test ===" << RESET << std::endl;
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);
@@ -14,10 +25,10 @@ int main()
 	sp.addNumber(11);
 	
 	sp.printNumbers();
-	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
-	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+	std::cout << "Shortest span: " << sp.shortestSpan() << RESET << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan() << RESET << std::endl;
 
-	std::cout << "\n=== Testing with iterator range ===" << std::endl;
+	std::cout <<BOLD<<YELLOW<< "\n=== Testing with iterator range ===" << RESET << std::endl;
 	Span sp2 = Span(10);
 	std::vector<int> numbers;
 	numbers.push_back(1);
@@ -28,21 +39,21 @@ int main()
 	
 	sp2.addNumber(numbers.begin(), numbers.end());
 	sp2.printNumbers();
-	std::cout << "Shortest span: " << sp2.shortestSpan() << std::endl;
-	std::cout << "Longest span: " << sp2.longestSpan() << std::endl;
+	std::cout << "Shortest span: " << sp2.shortestSpan() << RESET << std::endl;
+	std::cout << "Longest span: " << sp2.longestSpan() << RESET << std::endl;
 
-	std::cout << "\n=== Testing with large dataset ===" << std::endl;
+	std::cout <<BOLD<<YELLOW<< "\n=== Testing with large dataset ===" << RESET << std::endl;
 	Span sp3 = Span(10000);
 	std::vector<int> largeNumbers;
 	for (int i = 0; i < 10000; ++i)
 		largeNumbers.push_back(i * 2);
 	
 	sp3.addNumber(largeNumbers.begin(), largeNumbers.end());
-	std::cout << "Added 10000 numbers" << std::endl;
-	std::cout << "Shortest span: " << sp3.shortestSpan() << std::endl;
-	std::cout << "Longest span: " << sp3.longestSpan() << std::endl;
+	std::cout << "Added 10000 numbers" << RESET << std::endl;
+	std::cout << "Shortest span: " << sp3.shortestSpan() << RESET << std::endl;
+	std::cout << "Longest span: " << sp3.longestSpan() << RESET << std::endl;
 
-	std::cout << "\n=== Testing exceptions ===" << std::endl;
+	std::cout <<BOLD<<YELLOW<< "\n=== Testing exceptions ===" << RESET << std::endl;
 	Span sp4 = Span(2);
 	sp4.addNumber(1);
 	sp4.addNumber(2);
@@ -50,22 +61,22 @@ int main()
 	try {
 		sp4.addNumber(3);
 	} catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "Exception caught: " << e.what() << RESET << std::endl;
 	}
 
 	Span sp5 = Span(1);
 	sp5.addNumber(1);
 	
 	try {
-		std::cout << "Shortest span: " << sp5.shortestSpan() << std::endl;
+		std::cout << "Shortest span: " << sp5.shortestSpan() << RESET << std::endl;
 	} catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "Exception caught: " << e.what() << RESET << std::endl;
 	}
 
 	try {
-		std::cout << "Longest span: " << sp5.longestSpan() << std::endl;
+		std::cout << "Longest span: " << sp5.longestSpan() << RESET << std::endl;
 	} catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "Exception caught: " << e.what() << RESET << std::endl;
 	}
 
 	return 0;
