@@ -23,8 +23,9 @@ int main()
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
-	
+	std::cout <<CYAN ;
 	sp.printNumbers();
+	std::cout << RESET;
 	std::cout << "Shortest span: " << sp.shortestSpan() << RESET << std::endl;
 	std::cout << "Longest span: " << sp.longestSpan() << RESET << std::endl;
 
@@ -38,7 +39,9 @@ int main()
 	numbers.push_back(20);
 	
 	sp2.addNumber(numbers.begin(), numbers.end());
+	std::cout <<CYAN ;
 	sp2.printNumbers();
+	std::cout << RESET;
 	std::cout << "Shortest span: " << sp2.shortestSpan() << RESET << std::endl;
 	std::cout << "Longest span: " << sp2.longestSpan() << RESET << std::endl;
 
@@ -49,7 +52,7 @@ int main()
 		largeNumbers.push_back(i * 2);
 	
 	sp3.addNumber(largeNumbers.begin(), largeNumbers.end());
-	std::cout << "Added 10000 numbers" << RESET << std::endl;
+	std::cout <<CYAN << "Added 10000 numbers: 0, 2 ,4, ..., 19998" << RESET << std::endl;
 	std::cout << "Shortest span: " << sp3.shortestSpan() << RESET << std::endl;
 	std::cout << "Longest span: " << sp3.longestSpan() << RESET << std::endl;
 
@@ -57,7 +60,9 @@ int main()
 	Span sp4 = Span(2);
 	sp4.addNumber(1);
 	sp4.addNumber(2);
-	
+	std::cout <<CYAN;
+	sp4.printNumbers();
+	std::cout <<RESET;
 	try {
 		sp4.addNumber(3);
 	} catch (const std::exception& e) {
@@ -68,16 +73,18 @@ int main()
 	sp5.addNumber(1);
 	
 	try {
-		std::cout << "Shortest span: " << sp5.shortestSpan() << RESET << std::endl;
+		std::cout << "Shortest span: " << sp5.shortestSpan() << "❌"<< RESET << std::endl;
 	} catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << RESET << std::endl;
+		std::cout << "Exception caught: " << e.what() << "✅"<< RESET << std::endl;
 	}
 
 	try {
-		std::cout << "Longest span: " << sp5.longestSpan() << RESET << std::endl;
+		std::cout << "Longest span: " << sp5.longestSpan() << "❌"<< RESET << std::endl;
 	} catch (const std::exception& e) {
-		std::cout << "Exception caught: " << e.what() << RESET << std::endl;
+		std::cout << "Exception caught: " << e.what() << "✅"<< RESET << std::endl;
 	}
+	std::cout << std::endl;
+	std::cout << BOLD << GREEN << "✅ All tests completed successfully!" << RESET << std::endl;
 
 	return 0;
 }

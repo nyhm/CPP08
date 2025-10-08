@@ -34,13 +34,13 @@ int main()
 		std::cout << "at position: " << std::distance(vec.begin(), it) << RESET << std::endl;
 		std::cout << "Value: " << *it << "✅"<< RESET << std::endl;
 	} catch (const std::exception& e) {
-		std::cout << "Error: " << e.what() << RESET << std::endl;
+		std::cout << "Error: " << e.what() << "❌"<< RESET << std::endl;
 	}
 
 	std::cout << "\nFound value 6 "<<std::endl;
 	try {
 		std::vector<int>::iterator it = easyfind(vec, 6);
-		std::cout << "at position: " << std::distance(vec.begin(), it) << "✅"<< RESET << std::endl;
+		std::cout << "at position: " << std::distance(vec.begin(), it) << "❌"<< RESET << std::endl;
 	} catch (const std::exception& e) {
 		std::cout << "Error: " << e.what() << "✅"<< RESET << std::endl;
 	}
@@ -52,20 +52,21 @@ int main()
 	lst.push_back(30);
 	lst.push_back(40);
 	std::cout <<MAGENTA<< "list:";
-	for(size_t i=0;i<lst.size();i++){
-		std::cout <<" "<<vec[i];
-	}
+	for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it)
+    std::cout << " " << *it;
+
 	std::cout <<RESET<< std::endl;
 	std::cout << "Found value 20 "<<std::endl;
 	try {
 		std::list<int>::iterator it = easyfind(lst, 20);
 		std::cout << "Value: " << *it << "✅"<< RESET << std::endl;
 	} catch (const std::exception& e) {
-		std::cout << "Error: " << e.what() << RESET << std::endl;
+		std::cout << "Error: " << e.what() << "❌"<< RESET << std::endl;
 	}
 	std::cout << "\nFound value 50 "<<std::endl;
 	try {
 		easyfind(lst, 50);
+		std::cout << "❌"<< RESET << std::endl;
 	} catch (const std::exception& e) {
 		std::cout << "Error: " << e.what() << "✅"<< RESET << std::endl;
 	}
@@ -76,16 +77,16 @@ int main()
 	deq.push_back(200);
 	deq.push_back(300);
 	std::cout <<MAGENTA<< "deque:";
-	for(size_t i=0;i<deq.size();i++){
-		std::cout <<" "<<vec[i];
-	}
+	for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); ++it)
+    std::cout << " " << *it;
+
 	std::cout <<RESET<< std::endl;
 	std::cout << "Found value 200"<<std::endl;
 	try {
 		std::deque<int>::iterator it = easyfind(deq, 200);
 		std::cout << "Value: " << *it << "✅"<< RESET << std::endl;
 	} catch (const std::exception& e) {
-		std::cout << "Error: " << e.what() << RESET << std::endl;
+		std::cout << "Error: " << e.what() << "❌"<< RESET << std::endl;
 	}
 	std::cout << std::endl;
 	std::cout << BOLD << GREEN << "✅ All tests completed successfully!" << RESET << std::endl;
